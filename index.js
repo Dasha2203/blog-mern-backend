@@ -7,7 +7,7 @@ const { postController, userController } = require("./controllers/index");
 const { checkAuth, handleValidationErrors } = require("./utils/index");
 const { registerValidation, loginValidation, postCreateValidation } = require("./validations/index");
 
-mongoose.connect('mongodb+srv://admin:admin@cluster0.osf2l.mongodb.net/blog?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
     console.log('db ok ,')
   });
@@ -47,7 +47,7 @@ app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, post
 app.delete('/posts/:id', checkAuth, postController.remove);
 app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, postController.update);
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     console.log('error', error)
     return
