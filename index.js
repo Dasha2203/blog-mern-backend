@@ -35,7 +35,7 @@ app.use('/uploads', express.static('uploads'));
 // Routes
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
   res.json({
-    url: `/uploads/${req.file.originalname}`,
+    url: `uploads/${req.file.originalname}`,
   })
 })
 
