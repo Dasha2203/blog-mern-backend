@@ -9,7 +9,7 @@ const { registerValidation, loginValidation, postCreateValidation } = require(".
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log('db ok ,')
+    console.log('db connect')
   });
 
 const app = express();
