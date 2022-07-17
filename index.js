@@ -7,7 +7,7 @@ const { postController, userController } = require("./controllers/index");
 const { checkAuth, handleValidationErrors } = require("./utils/index");
 const { registerValidation, loginValidation, postCreateValidation } = require("./validations/index");
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect('mongodb+srv://admin:admin@cluster0.osf2l.mongodb.net/blog?retryWrites=true&w=majority')
   .then(() => {
     console.log('db ok')
   });
